@@ -10,7 +10,8 @@ When learning Sui Move, developers are encouraged to use best practices to utili
   - [Handling Returned Objects](#handling-returned-objects)
     - [Exercise](#exercise)
   - [Objects as Input](#objects-as-input)
-    - [Exercise](#exercise-1)
+    - [Exercise 1: Input Objects - Counter](#exercise-1-input-objects---counter)
+    - [Exercise 2: Return Objects - SUIIII NFT](#exercise-2-return-objects---suiiii-nft)
 
 # Environment Setup
 
@@ -107,6 +108,20 @@ The `delete` function receives the actual instance of the `SimpleObject` and del
 
 This usage is straightforward, but tends to leave developers wondering what this looks out in a wider context. In this lesson, you learn how to use objects as inputs in PTBs. 
 
-### Exercise
+### Exercise 1: Input Objects - Counter
 
-View the contents [`counter.move`](./lessons/input_objects/counter/sources/counter.move). There is a deployed instance of this package on the Sui blockchain. The address of the package is [`0xad3225e7d4827f81dc0686177067e1b458e8468ceabcff3456888ce3d806eb8c`](https://suiscan.xyz/testnet/object/0xad3225e7d4827f81dc0686177067e1b458e8468ceabcff3456888ce3d806eb8c/txs). Navigate to [`scripts/lessons/input_objects/exercise.ts`](./scripts/src/lessons/input_objects/exercise.ts) and complete the exercise.
+View the contents [`counter.move`](./lessons/input_objects/counter/sources/counter.move). There is a deployed instance of this package on the Sui blockchain. The address of the package is [`0xad3225e7d4827f81dc0686177067e1b458e8468ceabcff3456888ce3d806eb8c`](https://suiscan.xyz/testnet/object/0xad3225e7d4827f81dc0686177067e1b458e8468ceabcff3456888ce3d806eb8c/txs) and the counter object is [0x1feb03541d20064d1876c26cfa44514f2e029c8201a2fe12a60589842b9d391d](https://suiscan.xyz/testnet/object/0x1feb03541d20064d1876c26cfa44514f2e029c8201a2fe12a60589842b9d391d/fields).
+
+
+Navigate to [`scripts/lessons/input_objects/exercise.ts`](./scripts/src/lessons/input_objects/exercise.ts) and complete the exercise.
+
+### Exercise 2: Return Objects - SUIIII NFT
+
+The package of the SUIII NFT is at [`0x83feeef5abcb1d5caca48f5e4e2259f8fbbcac88c10d82cc95ed58ff6f0dcd79`](https://suiscan.xyz/testnet/object/0x83feeef5abcb1d5caca48f5e4e2259f8fbbcac88c10d82cc95ed58ff6f0dcd79/tx-blocks) and the NFT object type is [`0x83feeef5abcb1d5caca48f5e4e2259f8fbbcac88c10d82cc95ed58ff6f0dcd79::sui_nft::SuiNFT`](https://suiscan.xyz/testnet/collection/0x83feeef5abcb1d5caca48f5e4e2259f8fbbcac88c10d82cc95ed58ff6f0dcd79::sui_nft::SuiNFT/items).
+
+
+View the contract at [`sui_nft.move`](./lessons/returning_objects/sui_nft/sources/sui_nft.move). Try to mint an NFT to your account and view it at explorer with PTBs.
+
+Navigate to [`scripts/lessons/return_objects/exercise.ts`](./scripts/src/lessons/return_objects/exercise.ts) and complete the exercise.
+
+> Bonus Challenge: Can you deploy the [SUIII NFT package](./lessons/returning_objects/sui_nft) yourself and use different text and images for the NFT?
