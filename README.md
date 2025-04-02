@@ -18,7 +18,7 @@ When learning Sui Move, developers are encouraged to use best practices to utili
 Before we start, we need to set up our environment.
 
 ```bash
-npm install
+cd scripts && npm install
 ```
 
 Navigate to the `scripts` directory and run the following command: 
