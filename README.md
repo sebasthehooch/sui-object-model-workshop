@@ -18,13 +18,13 @@ When learning Sui Move, developers are encouraged to use best practices to utili
 Before we start, we need to set up our environment.
 
 ```bash
-yarn install
+npm install
 ```
 
 Navigate to the `scripts` directory and run the following command: 
 
 ```bash
-yarn init-keypair
+npm run init-keypair
 ```
 
 This will generate and fund a new keypair for you to use in the workshop. Make sure not to use this keypair in any production environments.
