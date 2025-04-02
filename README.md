@@ -11,7 +11,8 @@ When learning Sui Move, developers are encouraged to use best practices to utili
     - [Exercise](#exercise)
   - [Objects as Input](#objects-as-input)
     - [Exercise 1: Input Objects - Counter](#exercise-1-input-objects---counter)
-    - [Exercise 2: Return Objects - SUIIII NFT](#exercise-2-return-objects---suiiii-nft)
+    - [Exercise 2: Handling Returned Objects with PTBs - SUIIII NFT](#exercise-2-handling-returned-objects-with-ptbs---suiiii-nft)
+    - [Exercise 3: Scavenger Hunting with PTBs](#exercise-3-scavenger-hunting-with-ptbs)
 
 # Environment Setup
 
@@ -115,7 +116,7 @@ View the contents [`counter.move`](./lessons/input_objects/counter/sources/count
 
 Navigate to [`scripts/lessons/input_objects/exercise.ts`](./scripts/src/lessons/input_objects/exercise.ts) and complete the exercise.
 
-### Exercise 2: Return Objects - SUIIII NFT
+### Exercise 2: Handling Returned Objects with PTBs - SUIIII NFT
 
 The package of the SUIII NFT is at [`0x83feeef5abcb1d5caca48f5e4e2259f8fbbcac88c10d82cc95ed58ff6f0dcd79`](https://suiscan.xyz/testnet/object/0x83feeef5abcb1d5caca48f5e4e2259f8fbbcac88c10d82cc95ed58ff6f0dcd79/tx-blocks) and the NFT object type is [`0x83feeef5abcb1d5caca48f5e4e2259f8fbbcac88c10d82cc95ed58ff6f0dcd79::sui_nft::SuiNFT`](https://suiscan.xyz/testnet/collection/0x83feeef5abcb1d5caca48f5e4e2259f8fbbcac88c10d82cc95ed58ff6f0dcd79::sui_nft::SuiNFT/items).
 
@@ -125,3 +126,17 @@ View the contract at [`sui_nft.move`](./lessons/returning_objects/sui_nft/source
 Navigate to [`scripts/lessons/return_objects/exercise.ts`](./scripts/src/lessons/return_objects/exercise.ts) and complete the exercise.
 
 > Bonus Challenge: Can you deploy the [SUIII NFT package](./lessons/returning_objects/sui_nft) yourself and use different text and images for the NFT?
+
+### Exercise 3: Scavenger Hunting with PTBs
+
+In this exercise, you will try to get the `Bucket USD` coin in Testnet from the vault using a key created by PTBs. The deployed contract is at [`0x25dfcadb5927395b463a426e8d63425d654a6057affc368f4dc176e587f489a5`](https://suiscan.xyz/testnet/object/0x25dfcadb5927395b463a426e8d63425d654a6057affc368f4dc176e587f489a5/contracts).
+
+Navigate to [`scavenger`](./lessons/scavenger) to read the smart contract code.
+
+You will need to create a PTB to:
+1. Create a key
+2. Set the key code correctly
+3. Use the key to withdraw the `Bucket USD` coin from the vault
+4. Transfer the `Bucket USD` coin to your account
+
+Navigate to [`scripts/lessons/scavenger_hunt/exercise.ts`](./scripts/src/lessons/scavenger_hunt/exercise.ts) and complete the exercise.
