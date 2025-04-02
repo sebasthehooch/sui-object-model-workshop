@@ -17,6 +17,10 @@ When learning Sui Move, developers are encouraged to use best practices to utili
 
 Before we start, we need to set up our environment.
 
+```bash
+yarn install
+```
+
 Navigate to the `scripts` directory and run the following command: 
 
 ```bash
