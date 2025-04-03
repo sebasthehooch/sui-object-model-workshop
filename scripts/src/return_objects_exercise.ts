@@ -67,7 +67,7 @@ const main = async () => {
    * HINT: Use `suiAddress`` to transfer the object to your address.
    */
 
-  tx.transferObjects([nft], suiAddress);
+  // TODO: Add transferObjects call here
 
   /**
    * Task 4:

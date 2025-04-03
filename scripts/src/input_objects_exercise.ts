@@ -67,8 +67,10 @@ const main = async () => {
    */
 
   tx.moveCall({
-    target: `${PACKAGE_ID}::counter::increment`,
-    arguments: [tx.object(COUNTER_OBJECT_ID), coin],
+    target: ``, // TODO: Add target here
+    arguments: [
+      // TODO: Add arguments here
+    ],
   });
 
   /**
