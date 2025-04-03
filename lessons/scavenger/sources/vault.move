@@ -40,11 +40,13 @@ module scavenger::vault {
     }
 
     public fun withdraw<T>(
-        vault: &mut Vault<T>, key: key::Key,
+        vault: &mut Vault<T>, 
+        key: key::Key,
         ctx: &mut TxContext
     ): coin::Coin<T> {
-
-        assert_valid_key_code(vault, &key);key.delete();
+        assert_valid_key_code(vault, &key);
+        key.delete();
+        
         let new_coin = coin::from_balance(
             balance::split(
                 &mut vault.balance,
@@ -52,9 +54,7 @@ module scavenger::vault {
             ),
             ctx
         );
-
         new_coin
-
     }
 
     public fun empty<T>(

@@ -69,6 +69,7 @@ const main = async () => {
 
   const coin = tx.moveCall({
     target: `${PACKAGE_ID}::vault::withdraw`,
+    typeArguments: [TEST_BUCK_TYPE],
     arguments: [tx.object(VAULT_ID), key],
   });
 
