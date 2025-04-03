@@ -2,7 +2,7 @@ import { Transaction } from "@mysten/sui/transactions";
 import { Ed25519Keypair } from "@mysten/sui/keypairs/ed25519";
 import { getFullnodeUrl, SuiClient } from "@mysten/sui/client";
 import { decodeSuiPrivateKey } from "@mysten/sui/cryptography";
-import keyPairJson from "../../../keypair.json";
+import keyPairJson from "../keypair.json";
 
 /**
  *
@@ -14,21 +14,21 @@ import keyPairJson from "../../../keypair.json";
 const { secretKey } = decodeSuiPrivateKey(keyPairJson.privateKey);
 const keypair = Ed25519Keypair.fromSecretKey(secretKey);
 
-const PACKAGE_ID = `0xad3225e7d4827f81dc0686177067e1b458e8468ceabcff3456888ce3d806eb8c`;
-
-const COUNTER_OBJECT_ID = `0x1feb03541d20064d1876c26cfa44514f2e029c8201a2fe12a60589842b9d391d`;
+const PACKAGE_ID = `0x25dfcadb5927395b463a426e8d63425d654a6057affc368f4dc176e587f489a5`;
+const TEST_BUCK_TYPE = `0x25dfcadb5927395b463a426e8d63425d654a6057affc368f4dc176e587f489a5::test_buck::TEST_BUCK`;
+const VAULT_ID = `0x46aad790c2b0ffe7951cab440641ea6a08169aac9e8e843899fd0a2d15aaa0e1`;
 
 const rpcUrl = getFullnodeUrl("testnet");
 const suiClient = new SuiClient({ url: rpcUrl });
 
 /**
- * Objects as input: Exercise 1
+ * Scavenger Hunt: Exercise 3
  *
  * In this exercise, you use Sui objects as inputs in a PTB to update the value of a shared object.
  *
  * When finished, run the following command in the scripts directory to test your solution:
  *
- * yarn input-objects
+ * yarn scavenger-hunt
  *
  * RESOURCES:
  * - https://sdk.mystenlabs.com/typescript/transaction-building/basics#transactions
@@ -40,39 +40,48 @@ const main = async () => {
    * Create a new Transaction instance from the @mysten/sui/transactions module.
    */
   const tx = new Transaction();
-
   /**
    * Task 2:
    *
-   * Create a coin to pay the fee for incrementing the counter.
-   * Based on the counter.move file, we need to provide a SUI coin with at least the minimum fee (10).
-   * We use the `splitCoins` function to create a coin with the minimum fee from our gas fee.
-   *
-   * Resources:
-   * - SplitCoins: https://sdk.mystenlabs.com/typescript/transaction-building/basics
+   * Create a new key using the `key::new` function.
    */
-  const [coin] = tx.splitCoins(tx.gas, [tx.pure.u64(10)]);
+
+  const key = tx.moveCall({
+    target: `${PACKAGE_ID}::key::new`,
+  });
 
   /**
    * Task 3:
    *
-   * Execute the call to the `counter::increment` function to the transaction instance.
-   *
-   * The target should be in the format {package address}::{module name}::{function name}. The
-   * package address is provided above. The module name is `counter` and the function name is
-   * `increment`.
-   *
-   * Resources:
-   * - Object inputs: https://sdk.mystenlabs.com/typescript/transaction-building/basics#object-references
+   * Set the key code correctly using the `key::set_code` function.
    */
 
   tx.moveCall({
-    target: `${PACKAGE_ID}::counter::increment`,
-    arguments: [tx.object(COUNTER_OBJECT_ID), coin],
+    target: `${PACKAGE_ID}::key::set_code`,
+    arguments: [key, tx.pure.u64(777)],
   });
 
   /**
    * Task 4:
+   *
+   * Use the key to withdraw the `Bucket USD` coin from the vault using the `vault::withdraw` function.
+   */
+
+  const coin = tx.moveCall({
+    target: `${PACKAGE_ID}::vault::withdraw`,
+    arguments: [tx.object(VAULT_ID), key],
+  });
+
+  /**
+   * Task 5:
+   *
+   * Transfer the `Bucket USD` coin to your account.
+   */
+
+  tx.transferObjects([coin], keypair.toSuiAddress());
+
+  /**
+   * Task 6:
    *
    * Sign and execute the transaction using the SuiClient instance created above.
    *

@@ -2,7 +2,7 @@ import { Transaction } from "@mysten/sui/transactions";
 import { Ed25519Keypair } from "@mysten/sui/keypairs/ed25519";
 import { getFullnodeUrl, SuiClient } from "@mysten/sui/client";
 import { decodeSuiPrivateKey } from "@mysten/sui/cryptography";
-import keyPairJson from "../../../keypair.json";
+import keyPairJson from "../keypair.json";
 
 /**
  *
