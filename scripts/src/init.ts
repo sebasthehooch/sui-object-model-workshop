@@ -21,6 +21,9 @@ const main = async () => {
   console.log(
     `\nView your Sui account at https://suiscan.xyz/testnet/account/${publicAddress}`
   );
+  console.log("\nTry requesting tokens from alternative faucets:");
+  console.log("- https://faucet.n1stake.com/");
+  console.log("- https://faucet.sui.io/");
 };
 
 main();
