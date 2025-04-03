@@ -15,8 +15,7 @@ const { secretKey } = decodeSuiPrivateKey(keyPairJson.privateKey);
 const keypair = Ed25519Keypair.fromSecretKey(secretKey);
 const suiAddress = keypair.getPublicKey().toSuiAddress();
 
-const PACKAGE_ADDRESS = `0x83feeef5abcb1d5caca48f5e4e2259f8fbbcac88c10d82cc95ed58ff6f0dcd79`;
-const NFT_TYPE = `0x83feeef5abcb1d5caca48f5e4e2259f8fbbcac88c10d82cc95ed58ff6f0dcd79::sui_nft::SuiNFT`;
+const PACKAGE_ID = `0x83feeef5abcb1d5caca48f5e4e2259f8fbbcac88c10d82cc95ed58ff6f0dcd79`;
 
 const rpcUrl = getFullnodeUrl("testnet");
 const suiClient = new SuiClient({ url: rpcUrl });
@@ -55,7 +54,7 @@ const main = async () => {
    */
 
   const nft = tx.moveCall({
-    target: `${PACKAGE_ADDRESS}::sui_nft::new`,
+    target: `${PACKAGE_ID}::sui_nft::new`,
   });
 
   /**
@@ -82,7 +81,12 @@ const main = async () => {
     transaction: tx,
     signer: keypair,
   });
-  console.log(result);
+  await suiClient.waitForTransaction({
+    digest: result.digest,
+  });
+  console.log(
+    `[Success] view your transaction result at: https://suiscan.xyz/testnet/tx/${result.digest}`
+  );
 };
 
 main();
