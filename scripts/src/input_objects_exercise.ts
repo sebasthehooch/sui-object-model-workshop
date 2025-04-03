@@ -14,9 +14,9 @@ import keyPairJson from "../keypair.json";
 const { secretKey } = decodeSuiPrivateKey(keyPairJson.privateKey);
 const keypair = Ed25519Keypair.fromSecretKey(secretKey);
 
-const PACKAGE_ID = `0xad3225e7d4827f81dc0686177067e1b458e8468ceabcff3456888ce3d806eb8c`;
+const PACKAGE_ID = `0x8f0b6cbef998d26f03daa8a9e90d17d57bce8d4b45cb90911662a828f903d323`;
 
-const COUNTER_OBJECT_ID = `0x1feb03541d20064d1876c26cfa44514f2e029c8201a2fe12a60589842b9d391d`;
+const COUNTER_OBJECT_ID = `0x33a950ff57b782bc66f6416bf3fdf7d44de94a84fa823b9b9291f49d4b0270da`;
 
 const rpcUrl = getFullnodeUrl("testnet");
 const suiClient = new SuiClient({ url: rpcUrl });
