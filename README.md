@@ -15,7 +15,7 @@ When learning Sui Move, developers are encouraged to use best practices to utili
 
 # Environment Setup
 
-Before we start, we need to set up our environment.
+Before we start, we need to set up our environment for our scripts.
 
 ```bash
 cd scripts && npm install
