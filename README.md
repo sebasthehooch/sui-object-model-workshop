@@ -29,8 +29,10 @@ npm run init-keypair
 
 This will generate and fund a new keypair for you to use in the workshop. Make sure not to use this keypair in any production environments.
 
-Sui Faucet: [https://faucet.n1stake.com](https://faucet.n1stake.com), [https://faucet.sui.io/](https://faucet.sui.io/) OR [Discord faucet](https://discord.gg/cKx75xrRMq)
-
+Sui Faucet options:
+- [n1stake faucet](https://faucet.n1stake.com)
+- [Official Sui faucet](https://faucet.sui.io/)
+- [Discord faucet](https://discord.gg/cKx75xrRMq)
 
 # Lessons
 
@@ -88,7 +90,7 @@ The package of the SUIII NFT is at [`0x83feeef5abcb1d5caca48f5e4e2259f8fbbcac88c
 
 View the contract at [`sui_nft.move`](./lessons/returning_objects/sui_nft/sources/sui_nft.move). Try to mint an NFT to your account and view it at explorer with PTBs.
 
-Navigate to [`scripts/lessons/return_objects/exercise.ts`](./scripts/src/lessons/return_objects/exercise.ts) and complete the exercise.
+Navigate to [`scripts/src/return_objects_exercise.ts`](./scripts/src/return_objects_exercise.ts) and complete the exercise.
 
 > Bonus Challenge: Can you deploy the [SUIII NFT package](./lessons/returning_objects/sui_nft) yourself and use different text and images for the NFT?
 > [Install the Sui CLI](https://docs.sui.io/guides/developer/getting-started/sui-install), [Create Deployer Address](https://docs.sui.io/guides/developer/getting-started/get-address), and deposit gas coins from faucet, then use `sui client publish --skip-dependency-verification` to deploy!
@@ -128,7 +130,7 @@ This usage is straightforward, but tends to leave developers wondering what this
 View the contents [`counter.move`](./lessons/input_objects/counter/sources/counter.move). There is a deployed instance of this package on the Sui blockchain. The address of the package is [`0x8f0b6cbef998d26f03daa8a9e90d17d57bce8d4b45cb90911662a828f903d323`](https://suiscan.xyz/testnet/object/0x8f0b6cbef998d26f03daa8a9e90d17d57bce8d4b45cb90911662a828f903d323/txs) and the counter object is [0x33a950ff57b782bc66f6416bf3fdf7d44de94a84fa823b9b9291f49d4b0270da](https://suiscan.xyz/testnet/object/0x33a950ff57b782bc66f6416bf3fdf7d44de94a84fa823b9b9291f49d4b0270da/fields).
 
 
-Navigate to [`scripts/lessons/input_objects/exercise.ts`](./scripts/src/lessons/input_objects/exercise.ts) and complete the exercise.
+Navigate to [`scripts/src/input_objects_exercise.ts`](./scripts/src/input_objects_exercise.ts) and complete the exercise.
 
 
 ### Exercise 3: Scavenger Hunting with PTBs
@@ -143,4 +145,4 @@ You will need to create a PTB to:
 3. Use the key to withdraw the `Bucket USD` coin from the vault
 4. Transfer the `Bucket USD` coin to your account
 
-Navigate to [`scripts/lessons/scavenger_hunt/exercise.ts`](./scripts/src/lessons/scavenger_hunt/exercise.ts) and complete the exercise.
+Navigate to [`scripts/src/scavenger_hunt_exercise.ts`](./scripts/src/scavenger_hunt_exercise.ts) and complete the exercise.
