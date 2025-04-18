@@ -23,7 +23,7 @@ const suiClient = new SuiClient({ url: rpcUrl });
 /**
  * Returning Objects: Exercise 1
  *
- * In this exercise, you will be returned a new object from a function and must transfer it to an
+ * In this exercise, you will be returning a new object from a function and must transfer it to an
  * address, otherwise, the transaction will abort.
  *
  * When finished, run the following command in the scripts directory to test your solution:
@@ -68,6 +68,7 @@ const main = async () => {
    */
 
   // TODO: Add transferObjects call here
+  tx.transferObjects([nft], suiAddress)
 
   /**
    * Task 4:
